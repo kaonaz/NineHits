@@ -2,7 +2,8 @@
 sleep 10
 cd /root/9Hits/
 source parameters
-y=$(cat /proc/loadavg | awk '{print $3}')
+zx=$(cat /proc/loadavg | awk '{print $3}')
+y=$zx/4
 case $color in
 	"1")
         if (( $(echo "$y >= 1.6" | bc -l) && $(echo "$y <= 2.3" | bc -l) )); then
