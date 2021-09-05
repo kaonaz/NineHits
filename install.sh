@@ -541,8 +541,8 @@ $cronvar $reboot
 $cronvar $lookup
 EOFSS
     cd /root
-    mv 9Hits-AutoInstall/* /root/9Hits/
-    rm -r 9Hits-AutoInstall/
+    mv NineHits/* /root/9Hits/
+    rm -r NineHits/
     cd /root/9Hits/
     crontab crontab
     chmod 777 -R /root/9Hits/
