@@ -322,27 +322,79 @@ else
                 cpumax=$4
                 case $5 in
                     "1")
-                        let b=a+30
-                        cronvar="$a,$b * * * * /root/9Hits/kill.sh"
+                        cronvar="1 0 * * *"
                         ;;
                     "2")
-                        cronvar="$a * * * * /root/9Hits/kill.sh"
+                        cronvar="2 1 * * *"
                         ;;
                     "3")
-                        cronvar="$a 1,3,5,7,9,11,13,15,17,19,21,23 * * * /root/9Hits/kill.sh"
+                        cronvar="3 2 * * *"
                         ;;
                     "4")
-                        cronvar="$a 1,7,13,19 * * * /root/9Hits/kill.sh"
+                        cronvar="4 3 * * *"
                         ;;
                     "5")
-                        cronvar="$a 1,13 * * * /root/9Hits/kill.sh"
+                        cronvar="5 4 * * *"
                         ;;
                     "6")
-                        cronvar="$a 1 * * * /root/9Hits/kill.sh"
+                        cronvar="6 5 * * *"
+                        ;;
+                    "7")
+                        cronvar="7 6 * * *"
+                        ;;
+                    "8")
+                        cronvar="8 7 * * *"
+                        ;;
+                    "9")
+                        cronvar="9 8 * * *"
+                        ;;
+                    "10")
+                        cronvar="10 9 * * *"
+                        ;;
+                    "11")
+                        cronvar="11 10 * * *"
+                        ;;
+                    "12")
+                        cronvar="12 11 * * *"
+                        ;;
+                    "13")
+                        cronvar="13 12 * * *"
+                        ;;
+                    "14")
+                        cronvar="14 13 * * *"
+                        ;;
+                    "15")
+                        cronvar="15 14 * * *"
+                        ;;
+                    "16")
+                        cronvar="16 15 * * *"
+                        ;;
+                    "17")
+                        cronvar="17 16 * * *"
+                        ;;
+                    "18")
+                        cronvar="18 17 * * *"
+                        ;;
+                    "19")
+                        cronvar="19 18 * * *"
+                        ;;
+                    "20")
+                        cronvar="20 19 * * *"
+                        ;;
+                    "21")
+                        cronvar="21 20 * * *"
+                        ;;
+                    "22")
+                        cronvar="22 21 * * *"
+                        ;;
+                    "23")
+                        cronvar="23 22 * * *"
+                        ;;
+                    "24")
+                        cronvar="24 23 * * *"
                         ;;
                 esac
                 if [[ $6 -ne 0 ]]; then
-                    lookup="$a * * * * /root/9Hits/lookup.sh"
                     case $6 in
                         "1")
                             cores=`getconf _NPROCESSORS_ONLN`
@@ -459,7 +511,8 @@ EOFSS
 
     cd /root/9Hits/9HitsViewer_x64/sessions/
     isproxy=system
-    for i in `seq 1 $number`;
+	numberex=80
+    for i in `seq 1 $numberex`;
     do
         file="/root/9Hits/9HitsViewer_x64/sessions/ss$i.json"
 cat > $file <<EOFSS
@@ -477,12 +530,15 @@ cat > $file <<EOFSS
 EOFSS
         isproxy=exproxy
     done
+    kill="/root/9Hits/kill.sh"
+    reboot="/root/9Hits/reboot.sh"
+    lookup="/root/9Hits/lookup.sh"
     cronfile="/root/9Hits/crontab"
 cat > $cronfile <<EOFSS
 * * * * * /root/9Hits/crashdetect.sh
-$cronvar
-58 23 * * * /root/9Hits/reboot.sh
-$lookup
+$cronvar $kill
+$cronvar $reboot
+$cronvar $lookup
 EOFSS
     cd /root
     mv 9Hits-AutoInstall/* /root/9Hits/
