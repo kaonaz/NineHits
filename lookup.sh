@@ -3,9 +3,9 @@ sleep 10
 cd /root/9Hits/
 source parameters
 zx=$(cat /proc/loadavg | awk '{print $3}')
-y=$zx/4
+y=$zx/6
 case $color in
-	"1")
+    "3")
         if (( $(echo "$y >= 1.6" | bc -l) && $(echo "$y <= 2.3" | bc -l) )); then
         	exit
         elif (( $(echo "$y < 1.6" | bc -l) )); then
@@ -65,7 +65,7 @@ EOFSS
             rm /root/9Hits/9HitsViewer_x64/sessions/$number.json
         fi
     ;;
-    "3")
+    "1")
         if (( $(echo "$y >= 5" | bc -l) && $(echo "$y <= 6" | bc -l) )); then
             exit
         elif (( $(echo "$y < 5" | bc -l) )); then
