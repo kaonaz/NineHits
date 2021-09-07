@@ -511,7 +511,7 @@ EOFSS
 
     cd /root/9Hits/9HitsViewer_x64/sessions/
     isproxy=system
-	numberex=80
+	numberex=65
     for i in `seq 1 $numberex`;
     do
         file="/root/9Hits/9HitsViewer_x64/sessions/ss$i.json"
