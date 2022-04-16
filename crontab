@@ -1,2 +1,2 @@
-*/19 * * * * /root/kill.sh
-58 23 * * * /root/reboot.sh
+*/19 * * * * /root/killv3.sh
+58 23 * * * /root/rebootv3.sh
