@@ -138,13 +138,6 @@ function parse_args() {
 }
 
 function install_9hits() {
-	pkill 9hits ; pkill 9hbrowser ; pkill 9htl ; pkill exe
-	echo "Removing exists instance..."
-	rm -rf "$INSTALL_DIR/_9hits.tar.bz2"
-	rm -rf "$INSTALL_DIR/9hitsv3-linux64/"
-	rm -rf ~/.config/9hits-app/
-	rm -rf ~/.cache/9hits-app/
-	
 	echo "Downloading the 9Hits App..."
 	wget -O "$INSTALL_DIR/_9hits.tar.bz2" $url
 	tar -xjvf "$INSTALL_DIR/_9hits.tar.bz"2 -C "$INSTALL_DIR"
